@@ -1,0 +1,27 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <h1>SignUp</h1>
+    <div class="alert alert-primary" role="alert">
+      {{ responseMessage }}
+    </div>
+    <form action="/signup" method="post" >
+        <label for="">Username:</label>
+        <input type="text" name="username" ><br>
+        <label for="">Password:</label>
+        <input type="password" name="password"><br>
+        <label for="">first name:</label>
+        <input type="text" name="firstName" ><br>
+        <label for="">last name:</label>
+        <input type="text" name="lastName" ><br>
+        <label for="">Email:</label>
+        <input type="text" name="email" ><br>
+        <label for="">Phone:</label>
+        <input type="text" name="phone"><br>
+        <label for="">Linkedin:</label>
+        <input type="text" name="linkedin" ><br>
+        <label for="">Twitter:</label>
+        <input type="text" name="twitter"><br>
+        <button type="submit">Sign Up</button>
+    </form>
+{% endblock %}

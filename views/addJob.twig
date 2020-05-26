@@ -1,0 +1,15 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <h1>Add Job</h1>
+    <div class="alert alert-primary" role="alert">
+      {{ responseMessage }}
+    </div>
+    <form action="/add/job" method="post" >
+        <label for="">Title:</label>
+        <input type="text" name="title" ><br>
+        <label for="">Description:</label>
+        <input type="text" name="description"><br>
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}

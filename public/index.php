@@ -43,25 +43,30 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
 
 $routerContainer = new RouterContainer();
 $map = $routerContainer->getMap();
-$map->get('index','/',[
-    'controller' => 'App\Controllers\IndexController',
-    'action'=>'indexAction'
+$map->get('curriculum','/cv',[
+    'controller' => 'App\Controllers\CurriculumController',
+    'action'=>'curriculumAction',
+    'auth' => true
 ]);
 $map->get('addJobs','/add/job',[
     'controller' => 'App\Controllers\JobsController',
-    'action' => 'getAddJobAction'
+    'action' => 'getAddJobAction',
+    'auth' => true
 ]);
 $map->post('saveJobs','/add/job',[
     'controller' => 'App\Controllers\JobsController',
-    'action' => 'getAddJobAction'
+    'action' => 'getAddJobAction',
+    'auth' => true
 ]);
 $map->get('addProject','/add/project',[
     'controller' => 'App\Controllers\ProjectsController',
-    'action' => 'getAddProjectAction'
+    'action' => 'getAddProjectAction',
+    'auth' => true
 ]);
 $map->post('saveProject','/add/project',[
     'controller' => 'App\Controllers\ProjectsController',
-    'action' => 'getAddProjectAction'
+    'action' => 'getAddProjectAction',
+    'auth' => true
 ]);
 $map->get('signUp','/signup',[
     'controller' => 'App\Controllers\SignupController',
@@ -71,11 +76,11 @@ $map->post('SaveSignUp','/signup',[
     'controller' => 'App\Controllers\SignupController',
     'action' => 'getAddUserAction'
 ]);
-$map->get('login','/login',[
+$map->get('login','/',[
     'controller' => 'App\Controllers\LoginController',
     'action' => 'getloginAction'
 ]);
-$map->post('redirect','/login',[
+$map->post('redirect','/',[
     'controller' => 'App\Controllers\LoginController',
     'action' => 'postAuthAction'
 ]);
@@ -106,7 +111,7 @@ if (!$route){
     
     $sessionUserId = $_SESSION['userId'] ?? null;
     if($needsAuth &&  !$sessionUserId){
-        header('location: /login');
+        header('location: /');
         exit;
     }
 

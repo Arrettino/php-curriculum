@@ -3,15 +3,15 @@ namespace App\Controllers;
 
 use App\Models\{Job,Project};
 
-class IndexController extends BaseController{
+class CurriculumController extends BaseController{
     
-    public function indexAction(){
+    public function curriculumAction(){
     $jobs = Job::all();
     $projects = Project::all(); 
     $name = 'Hector Benitez';
     $limitMonths = 2000;
 
-    return $this->renderHTML('index.twig',[
+    return $this->renderHTML('curriculum.twig',[
         'name'=>$name,
         'jobs'=>$jobs,
         'projects'=>$projects,

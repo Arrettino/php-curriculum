@@ -4,11 +4,12 @@
     <div class="alert alert-primary" role="alert">
       {{ responseMessage }}
     </div>
-    <form action='/login' method="post" >
+    <form action='/' method="post" >
         <label for="">Username:</label>
         <input type="text" name="username" ><br>
         <label for="">Password:</label>
         <input type="password" name="password"><br>
         <button type="submit">Login</button>
     </form>
+    <p>Don`t have an account?  <a href="/signup">Sign Up</a></p>
 {% endblock %}
